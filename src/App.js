@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.less';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
+import Login from './pages/login/login'
+import Admin from './pages/admin/admin'
+
+class App extends React.Component {
+	render(){
+		return (
+			<Router>
+				<Switch>{/*只匹配其中一个*/}
+					<Route path='/login' component={Login}></Route>
+					<Route path='/' component={Admin}></Route>
+				</Switch>
+			</Router>	
+		)
+	}
 }
 
 export default App;
